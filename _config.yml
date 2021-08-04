@@ -7,7 +7,7 @@
 # https://learnxinyminutes.com/docs/yaml/
 
 title: Kieren's Data Science Blog
-description: The world of data and Mmachine learning through the eyes of a Data Scientist.
+description: The world of data and machine learning through the eyes of a data scientist
 github_username: kierenAW
 # you can comment the below line out if your repo name is not different than your baseurl
 github_repo: "blog"
