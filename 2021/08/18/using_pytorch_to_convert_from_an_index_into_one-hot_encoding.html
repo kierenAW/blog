@@ -127,14 +127,14 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Why-Use-One-Hot-Encoder">Why Use One-Hot Encoder<a class="anchor-link" href="#Why-Use-One-Hot-Encoder"> </a></h2><p>In many classification tasks the use of <a href="https://en.wikipedia.org/wiki/One-hot">one-hot encoding</a> of labels is needed by some loss functions, this is especially true when there is more than 2 classes.</p>
-<p>The benefit of one-hot encoding is that the neural network can have an output neuron for each class, when a <a href="https://pytorch.org/docs/stable/generated/torch.nn.Softmax.html">Softmax</a> is applied just before the output results in an output tensor where all values add up to 1.0 and this is often read as likelihood.</p>
+<p>The benefit of one-hot encoding is that the neural network can have an output neuron for each class, when a <a href="https://pytorch.org/docs/stable/generated/torch.nn.Softmax.html">Softmax</a> is applied just before the output results in an output tensor where all values add up to 1.0, the output number for each class is often read as likelihood for that class.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Example">Example<a class="anchor-link" href="#Example"> </a></h2><p>An example could be classes <i>cat</i>, <i>dog</i>, <i>cow</i> and a photo of a <i>cow</i> might result in an output tensor that looks like this [.05, 0.5, .90] therefore we might describe this as having 5% likelihood of being <i>cat</i> or <i>dog</i> and 90% of being a <i>cow</i>.</p>
+<h2 id="Example">Example<a class="anchor-link" href="#Example"> </a></h2><p>An example could be a neural network trained (or being trained) to predict 3 classes such as <i>cat</i>, <i>dog</i> and <i>cow</i> is given a photo of a <i>cow</i>; this might result in an output tensor that looks like this [.05, 0.5, .90] therefore we might describe this as having 5% likelihood of being <i>cat</i> or <i>dog</i> and 90% of being a <i>cow</i>.</p>
 <p>The ground truth tensor for this case might look like [0, 0, 1] and the tensor of the difference between the predictions and ground truth could be described as [.05, .05, .1]</p>
 
 </div>
@@ -241,18 +241,18 @@ window.onload = wrap_img;
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Randomly generating index.....
 
-The index is now tensor([0., 0., 0., 1., 1., 0., 0., 1., 0., 0.])
+The index is now tensor([0., 1., 0., 1., 0., 1., 1., 1., 0., 0.])
 
 Creating one-hot encoded tensor....
 
 The one-hot encoded index is now:
 tensor([[1, 0],
+        [0, 1],
         [1, 0],
+        [0, 1],
         [1, 0],
         [0, 1],
         [0, 1],
-        [1, 0],
-        [1, 0],
         [0, 1],
         [1, 0],
         [1, 0]])
@@ -295,21 +295,21 @@ tensor([[1, 0],
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Randomly generating index.....
 
-The index is now tensor([7., 8., 2., 5., 9., 0., 6., 1., 5., 4.])
+The index is now tensor([8., 1., 8., 1., 1., 8., 0., 2., 2., 8.])
 
 Creating one-hot encoded tensor....
 
 The one-hot encoded index is now:
-tensor([[0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-        [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+tensor([[0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
         [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-        [0, 0, 0, 0, 1, 0, 0, 0, 0, 0]])
+        [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+        [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+        [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 0, 1, 0]])
 </pre>
 </div>
 </div>
@@ -349,35 +349,35 @@ tensor([[0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Randomly generating index.....
 
-The index is now tensor([2., 1., 1., 2., 1., 2., 2., 1., 0., 2., 1., 2., 1., 2., 1., 0., 2., 0.,
-        2., 2., 0., 0., 1., 0., 0.])
+The index is now tensor([0., 1., 2., 1., 2., 2., 0., 0., 2., 0., 1., 0., 2., 1., 1., 2., 0., 1.,
+        2., 2., 2., 2., 2., 0., 0.])
 
 Creating one-hot encoded tensor....
 
 The one-hot encoded index is now:
-tensor([[0, 0, 1],
-        [0, 1, 0],
-        [0, 1, 0],
-        [0, 0, 1],
-        [0, 1, 0],
-        [0, 0, 1],
-        [0, 0, 1],
-        [0, 1, 0],
-        [1, 0, 0],
-        [0, 0, 1],
+tensor([[1, 0, 0],
         [0, 1, 0],
         [0, 0, 1],
         [0, 1, 0],
-        [0, 0, 1],
-        [0, 1, 0],
-        [1, 0, 0],
-        [0, 0, 1],
-        [1, 0, 0],
         [0, 0, 1],
         [0, 0, 1],
         [1, 0, 0],
         [1, 0, 0],
+        [0, 0, 1],
+        [1, 0, 0],
         [0, 1, 0],
+        [1, 0, 0],
+        [0, 0, 1],
+        [0, 1, 0],
+        [0, 1, 0],
+        [0, 0, 1],
+        [1, 0, 0],
+        [0, 1, 0],
+        [0, 0, 1],
+        [0, 0, 1],
+        [0, 0, 1],
+        [0, 0, 1],
+        [0, 0, 1],
         [1, 0, 0],
         [1, 0, 0]])
 </pre>
