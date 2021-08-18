@@ -119,12 +119,30 @@ window.onload = wrap_img;
         
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this post we cover how to use <a href="https://pytorch.org/docs/stable/nn.functional.html">torch.nn.functional</a> to encode a integer label (e.g. 1,4,6) into a one-hot tensor (e.g. [0,1,0,0,0])</p>
+<p>In this post we cover how to use <a href="https://pytorch.org/docs/stable/nn.functional.html">torch.nn.functional</a> to encode a integer label (e.g. 4 or 0 or 6) into a one-hot encoded tensor (e.g. [0, 0, 0, 1, 0, 0] or [1, 0, 0, 0, 0] or [0, 0, 0, 0, 1])</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Why-Use-One-Hot-Encoder">Why Use One-Hot Encoder<a class="anchor-link" href="#Why-Use-One-Hot-Encoder"> </a></h2><p>In many classification tasks the use of <a href="https://en.wikipedia.org/wiki/One-hot">one-hot encoding</a> of labels is needed by some loss functions, this is especially true when there is more than 2 classes.</p>
 <p>The benefit of one-hot encoding is that the neural network can have an output neuron for each class, when a <a href="https://pytorch.org/docs/stable/generated/torch.nn.Softmax.html">Softmax</a> is applied just before the output results in an output tensor where all values add up to 1.0 and this is often read as likelihood.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Example">Example<a class="anchor-link" href="#Example"> </a></h2><p>An example could be classes <i>cat</i>, <i>dog</i>, <i>cow</i> and a photo of a <i>cow</i> might result in an output tensor that looks like this [.05, 0.5, .90] therefore we might describe this as having 5% likelihood of being <i>cat</i> or <i>dog</i> and 90% of being a <i>cow</i>.</p>
 <p>The ground truth tensor for this case might look like [0, 0, 1] and the tensor of the difference between the predictions and ground truth could be described as [.05, .05, .1]</p>
-<h2 id="Reproducing">Reproducing<a class="anchor-link" href="#Reproducing"> </a></h2><p>This code was created and tested using <a href="https://github.com/kierenAW/conda_environments_for_data_science">Environment E037</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Reproducing-Code">Reproducing Code<a class="anchor-link" href="#Reproducing-Code"> </a></h2><p>This code was created and tested using <a href="https://github.com/kierenAW/conda_environments_for_data_science">Environment E037</a></p>
 
 </div>
 </div>
