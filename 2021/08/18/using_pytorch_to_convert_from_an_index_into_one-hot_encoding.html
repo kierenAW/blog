@@ -173,7 +173,7 @@ window.onload = wrap_img;
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Example-function">Example function<a class="anchor-link" href="#Example-function"> </a></h2><p>We use torch’s random function to create a tensor of the chosen length while randomly setting the class to the selected number indexing from zero.</p>
+<h2 id="Example-function">Example function<a class="anchor-link" href="#Example-function"> </a></h2><p>We use torch’s random function to create a tensor of the chosen length while randomly setting the class with maximum if the selected number of classes indexing from zero.</p>
 
 </div>
 </div>
@@ -241,20 +241,20 @@ window.onload = wrap_img;
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Randomly generating index.....
 
-The index is now tensor([0., 1., 0., 1., 0., 1., 1., 1., 0., 0.])
+The index is now tensor([0., 0., 0., 1., 1., 0., 0., 0., 1., 0.])
 
 Creating one-hot encoded tensor....
 
 The one-hot encoded index is now:
 tensor([[1, 0],
-        [0, 1],
         [1, 0],
-        [0, 1],
         [1, 0],
-        [0, 1],
         [0, 1],
         [0, 1],
         [1, 0],
+        [1, 0],
+        [1, 0],
+        [0, 1],
         [1, 0]])
 </pre>
 </div>
@@ -295,21 +295,21 @@ tensor([[1, 0],
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Randomly generating index.....
 
-The index is now tensor([8., 1., 8., 1., 1., 8., 0., 2., 2., 8.])
+The index is now tensor([7., 6., 3., 0., 2., 3., 7., 2., 5., 2.])
 
 Creating one-hot encoded tensor....
 
 The one-hot encoded index is now:
-tensor([[0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-        [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-        [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+tensor([[0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+        [0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+        [0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
         [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
         [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 1, 0]])
+        [0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+        [0, 0, 1, 0, 0, 0, 0, 0, 0, 0]])
 </pre>
 </div>
 </div>
@@ -349,34 +349,34 @@ tensor([[0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Randomly generating index.....
 
-The index is now tensor([0., 1., 2., 1., 2., 2., 0., 0., 2., 0., 1., 0., 2., 1., 1., 2., 0., 1.,
-        2., 2., 2., 2., 2., 0., 0.])
+The index is now tensor([0., 2., 1., 0., 1., 0., 2., 2., 2., 2., 1., 1., 1., 1., 2., 0., 0., 0.,
+        0., 0., 2., 0., 2., 0., 0.])
 
 Creating one-hot encoded tensor....
 
 The one-hot encoded index is now:
 tensor([[1, 0, 0],
-        [0, 1, 0],
         [0, 0, 1],
         [0, 1, 0],
-        [0, 0, 1],
-        [0, 0, 1],
-        [1, 0, 0],
-        [1, 0, 0],
-        [0, 0, 1],
         [1, 0, 0],
         [0, 1, 0],
         [1, 0, 0],
         [0, 0, 1],
+        [0, 0, 1],
+        [0, 0, 1],
+        [0, 0, 1],
+        [0, 1, 0],
+        [0, 1, 0],
         [0, 1, 0],
         [0, 1, 0],
         [0, 0, 1],
         [1, 0, 0],
-        [0, 1, 0],
+        [1, 0, 0],
+        [1, 0, 0],
+        [1, 0, 0],
+        [1, 0, 0],
         [0, 0, 1],
-        [0, 0, 1],
-        [0, 0, 1],
-        [0, 0, 1],
+        [1, 0, 0],
         [0, 0, 1],
         [1, 0, 0],
         [1, 0, 0]])
