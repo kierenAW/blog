@@ -77,7 +77,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      20 min read
+      21 min read
     
 </span></p>
 
@@ -117,6 +117,16 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this post we are going to take a <a href="https://pytorch.org/vision/stable/models.html">Pytorch model</a> that has been pre-trained on <a href="https://image-net.org/">Imagenet</a> (with 100 classes) and fine tune it on a different dataset (CIFAR2) with a 2 classes.</p>
+<p>This post is aimed at those who are familiar with Jupyter, Python and Deep Learning concepts in general eg Tensorflow or FastAI users. If you are not already familiar with Deep Learning you may find <a href="https://course.fast.ai">Practical Deep Learning for Coders</a> by Jeremy Howard and Sylvain Gugger to be an excellent introduction to both the <a href="https://www.fast.ai/">Fast AI library</a> and to deep learning in general.</p>
+<p>While not included in this example; the use of a tracking system, such as the open source  <a href="https://mlflow.org/">MLFlow</a>, to log results during training and to store the resulting model would be best practice and provides many benefits over the print out methods demonstrated here.</p>
+<p>The training and dataset creation have been deliberately kept streamlined in order to show the concepts involved, in a real situation additional work would be needed to ensure reliability and robust functioning.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Reproducing">Reproducing<a class="anchor-link" href="#Reproducing"> </a></h2>
