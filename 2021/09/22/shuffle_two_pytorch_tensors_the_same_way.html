@@ -119,14 +119,14 @@ window.onload = wrap_img;
         
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>At times in Pytorch it might be useful to shuffle two separate tensors in the same way, with the result that that the shuffled elements create two new tensors which maintain the pairing of elements between the tensors.  An example might be to shuffle a dataset and ensure the labels are still matched correctly after the shuffling.</p>
+<p>At times in Pytorch it might be useful to shuffle two separate tensors in the same way, with the result that the shuffled elements create two new tensors which maintain the pairing of elements between the tensors.  An example might be to shuffle a dataset and ensure the labels are still matched correctly after the shuffling.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Import-Torch">Import Torch<a class="anchor-link" href="#Import-Torch"> </a></h2><p>We only need torch for this, it is posable to achieve this is a very similar way in numpy but I prefer to use Pytorch for simplicity.</p>
+<h2 id="Import-Torch">Import Torch<a class="anchor-link" href="#Import-Torch"> </a></h2><p>We only need torch for this, it is possible to achieve this is a very similar way in numpy, but I prefer to use Pytorch for simplicity.</p>
 
 </div>
 </div>
@@ -150,7 +150,7 @@ window.onload = wrap_img;
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Import-Create-Example-Tensors">Import Create Example Tensors<a class="anchor-link" href="#Import-Create-Example-Tensors"> </a></h2><p>Here we create two tensors one run 0 to 9 and the second runs 9 to 0.</p>
+<h2 id="Import-Create-Example-Tensors">Import Create Example Tensors<a class="anchor-link" href="#Import-Create-Example-Tensors"> </a></h2><p>Here we create two tensors one runs 0 to 9 and the second runs 9 to 0.</p>
 
 </div>
 </div>
@@ -192,17 +192,8 @@ tensor([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>These new tensor  elements are tensors are paired as follows, the next steps will shuffle the position of these elements while maintaining their pairing</p>
-<p>0 -&gt; 9\
-1 -&gt; 8\
-2 -&gt; 7\
-3 -&gt; 6\
-4 -&gt; 5\
-5 -&gt; 4\
-6 -&gt; 3\
-7 -&gt; 2\
-8 -&gt; 1\
-9 -&gt; 0</p>
+<p>These new tensor elements are tensors, and are paired as follows, the next steps will shuffle the position of these elements while maintaining their pairing.</p>
+<p>0-&gt;9, 1-&gt;8, 2-&gt;7, 3-&gt;6, 4-&gt;5, 5-&gt;4, 6-&gt;3, 7-&gt;2, 8-&gt;1, 9-&gt;0</p>
 
 </div>
 </div>
@@ -238,7 +229,7 @@ tensor([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>tensor([3, 1, 7, 6, 4, 0, 9, 5, 2, 8])</pre>
+<pre>tensor([9, 3, 2, 8, 4, 5, 0, 7, 1, 6])</pre>
 </div>
 
 </div>
@@ -279,8 +270,8 @@ tensor([9, 8, 7, 6, 5, 4, 3, 2, 1, 0])
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>tensor([3, 1, 7, 6, 4, 0, 9, 5, 2, 8])
-tensor([6, 8, 2, 3, 5, 9, 0, 4, 7, 1])
+<pre>tensor([9, 3, 2, 8, 4, 5, 0, 7, 1, 6])
+tensor([0, 6, 7, 1, 5, 4, 9, 2, 8, 3])
 </pre>
 </div>
 </div>
